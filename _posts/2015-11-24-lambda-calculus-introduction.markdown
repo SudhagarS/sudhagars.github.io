@@ -4,7 +4,7 @@ title:  "An Informal Introduction To Lambda Calculus"
 date:   2015-11-24 16:00:00 +0530
 categories: functional lambda
 tags: lambda functional
-excerpt: Hence an exploration of functional programming would be incomplete without studying λ Calculus.
+excerpt: An exploration of functional programming would be incomplete without studying λ Calculus.
 ---
 
 It was two or three years ago. I was reading some Python code when I came across a λ-expression for the first time. My immediate reaction was confusion on why that was out of sync with rest of the syntax.
