@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Rbenv - How it works"
-date:   2016-07-23 16:00:00 +0530
+title:  "Rbenv - Internals"
+date:   2016-07-21 16:00:00 +0530
 categories: ruby
-tags: ruby how-it
+tags: ruby internals
 ---
 
 Today I installed a new gem. When I tried to run the command provided by the gem, I got an error `zsh: command not found: wheneverize`. I realised I forgot to run `rbenv rehash`. So I ran it and this is what I got `rbenv: cannot rehash: /Users/shot/.rbenv/shims/.rbenv-shim exists`.
@@ -22,9 +22,9 @@ If you go into ~/.rbenv, you will find two directories `shims` and `versions`. S
 
 > *In computer programming, a shim is a small library that transparently intercepts API calls and changes the arguments passed, handles the operation itself, or redirects the operation elsewhere.*
 
-This is exactly what rbenv shims do. Shims intercept all the ruby related commands and call `rbenv exec` which takes care of executing the right binaries.
+This is exactly what rbenv shims do. A rbenv shim intercepts a ruby related command and calls `rbenv exec` which takes care of running the right executable.
 
-How does rbenv intercept ruby commands? It does so by putting all possible commands as separate executable files in `~/.rbenv/shims` and adding this directory before all the other directories in `$PATH` env variable. So when you run `ruby -v`, the system will find the script `ruby` in `~/.rbenv/shims` directory and execute it.
+How does rbenv intercept ruby commands? It does so by putting all possible commands as separate executable files in `~/.rbenv/shims` and adding this directory before all the other directories in `$PATH` env variable. So when you run `ruby -v`, the system will find the shim script `ruby` in `~/.rbenv/shims` directory and execute it.
 
 Lets see what's inside a file in shims directory.
 
