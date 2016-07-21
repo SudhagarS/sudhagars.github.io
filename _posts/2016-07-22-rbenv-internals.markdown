@@ -4,6 +4,7 @@ title:  "Rbenv - Internals"
 date:   2016-07-21 16:00:00 +0530
 categories: ruby
 tags: ruby internals
+excerpt: I have run across issues with rbenv before and everytime I would just search on the internet about it and apply the solution I find on a stackoverflow link. This time I thought I will try to understand how rbenv works.
 ---
 
 Today I installed a new gem. When I tried to run the command provided by the gem, I got an error `zsh: command not found: wheneverize`. I realised I forgot to run `rbenv rehash`. So I ran it and this is what I got `rbenv: cannot rehash: /Users/shot/.rbenv/shims/.rbenv-shim exists`.
