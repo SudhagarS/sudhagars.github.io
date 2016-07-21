@@ -1,25 +1,48 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Decorators in Python"
 date:   2016-07-21 06:21:42 +0530
-categories: jekyll update
+categories: python
+tags: python decorators
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Decorators are one of my favorite pieces in Python. As the name suggests, a decorator is something that decorates a function by adding extra behaviours. '**@**' is used in Python for decorators.
 
-Jekyll also offers powerful support for code snippets:
+Let say you want to calculate the time a function takes to execute. One thing you could do is, inside the function body have the below statements.
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+
+{% highlight python %}
+t=time.clock
+func body
+print time.clock-t
 {% endhighlight %}
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+This is ok if you want to time only one function. But if you want to calculate execution time for more than 2 functions, you can't just go and alter all the functions. That violates the "DRY" principle. What you could do is write a function that takes as input a function and returns a new function with additional support for timing the execution.
 
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+{% highlight python %}
+def benchmark(oldfunc):
+        import time
+        def wrapper(*args, **kwargs):
+                t = time.clock()
+                res = func(*args, **kwargs)
+                print func.__name__, time.clock()-t
+                return res
+        return wrapper
+{% endhighlight %}
+
+Now if u want to add this timing feature for func_a, you would write,
+
+{% highlight python %}
+func_a= benchmark(func_a)
+{% endhighlight %}
+
+Since this pattern of altering a function is so common, Python has a special syntax for that.
+
+{% highlight python %}
+@benchmark
+def func_a():
+        body
+{% endhighlight %}
+
+For more on decorators, 
+[http://wiki.python.org/moin/PythonDecorators#What_is_a_Decorator]().

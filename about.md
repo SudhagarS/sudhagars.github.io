@@ -4,12 +4,8 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Hello!
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
+I am Sudhagar. I live in Chennai. Ex- Zoho, Crowdfire. I am taking care of [Goodshows](https://home.goodshowsapp.com) and [Whileaway](https://www.whileaway.top) currently. I tweet sometimes but RT interesting tweets often. So follow me {% include icon-twitter.html username="shotwhat" %}.
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+I have created two little gems in Ruby. You can view their code on {% include icon-github.html username="SudhagarS" %}
