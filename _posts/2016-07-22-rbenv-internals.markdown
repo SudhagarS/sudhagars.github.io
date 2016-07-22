@@ -17,9 +17,11 @@ I deleted the file, did a rehash and everything worked fine. I have run across i
 
 `rbenv` is really simple at its core. You install different ruby versions with `rbenv install version` and pick a version for a specific project with `rbenv local version` and set a global ruby version with `rbenv global version`.
 
+Rbenv puts different Ruby versions in `~/.rbenv/versions`.
+
 ### Shims 
 
-If you go into ~/.rbenv, you will find two directories `shims` and `versions`. Shims? What is it? Here is its [wikipedia](https://en.wikipedia.org/wiki/Shim_(computing)) description.
+If you go into ~/.rbenv, you will find another directory `shims`. Shims? What is it? Here is its [wikipedia](https://en.wikipedia.org/wiki/Shim_(computing)) description.
 
 > *In computer programming, a shim is a small library that transparently intercepts API calls and changes the arguments passed, handles the operation itself, or redirects the operation elsewhere.*
 
@@ -76,6 +78,50 @@ exec "/usr/local/Cellar/rbenv/1.0.0/libexec/rbenv" exec "$program" "$@"
 
 So a shim file on its own is not doing much. It sets up the environment variables `RBENV_DIR` and `RBENV_ROOT`. It then execute the command `/usr/local/Cellar/rbenv/1.0.0/libexec/rbenv exec original-command original-args`.
 
+eg. `rails s` is interpreted by `~/.rbenv/shims/rails` which then runs `rbenv exec rails s`.
+
 ### rbenv exec
 
+Rbenv exec [script](https://github.com/rbenv/rbenv/blob/master/libexec/rbenv-exec) takes over from the shim script.
+
+From the doucmentation:
+{% highlight html %}
+Runs an executable by first preparing PATH so that the selected Ruby
+version's 'bin' directory is at the front.
+{% endhighlight %}
+
+Lets examine how it works by going through the steps involved.
+
+1. Rbenv exec starts off by finding the right Ruby version to apply. To find the right version it runs `rbenv version-name`. `rbenv version-name` first looks at the current directory for a local version file named `.ruby-version`. If it exists it reads the version from there. Else it read the version from the global version file at `~/.rbenv/version`.
+
+    `RBENV_VERSION=2.2.3`
+
+2. It then finds the command which is the first argument to exec script.
+
+    `RBENV_COMMAND=rails`
+
+3. It then runs `rbenv which cmd` to find the path of the right executable by using the above found values.
+    
+        -> rbenv which rails
+        /Users/shot/.rbenv/versions/2.2.3/bin/rails
+
+      `RBENV_COMMAND_PATH=/Users/shot/.rbenv/versions/2.2.3/bin/rails`
+
+4. Rbenv then runs rbenv hooks. We will see the details of this later.
+
+5. It then trims the last part of `RBENV_COMMAND_PATH` to the find the value of `RBENV_BIN_PATH`. This path is then prepended to the $PATH environment variable.
+        
+      `RBENV_BIN_PATH=/Users/shot/.rbenv/versions/2.2.3/bin`
+
+      `export PATH="${RBENV_BIN_PATH}:${PATH}"`
+
+6. Finally the original command is run. Now the system will find the right binary instead of the shim.
+
+      `rails s`
+
+So to summarise, when you run `rbenv exec rails s`, it is roughly turned into `PATH="~/.rbenv/versions/2.2.3/bin:$PATH" rails s` by rbenv exec.
+
+### rbenv rehash
+
 (in progress)
+
