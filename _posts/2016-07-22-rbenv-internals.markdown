@@ -107,8 +107,6 @@ Lets examine how it works by going through the steps involved. We will use `rben
 
       `RBENV_COMMAND_PATH=/Users/shot/.rbenv/versions/2.2.3/bin/rails`
 
-4. Rbenv then runs rbenv hooks. We will see the details of this later.
-
 5. It then trims the last part of `RBENV_COMMAND_PATH` to the find the value of `RBENV_BIN_PATH`. This path is then prepended to the $PATH environment variable.
         
       `RBENV_BIN_PATH=/Users/shot/.rbenv/versions/2.2.3/bin`
@@ -123,5 +121,22 @@ So to summarise, when you run `rbenv exec rails s`, it is roughly turned into `P
 
 ### rbenv rehash
 
-(in progress)
+This commands jobs is to create shim scripts. After you install a gem, its shim won't be there. Hence the need to run `rbenv rehash` everytime after you install a gem.
+
+Here is step by step breakdown on how shims are created.
+
+1. It sees if the directory `~/.rbenv/shims` exists. If it doesn't, it is created.
+
+2. It then checks if the shim prototype file `.rbenv/shims/.rbenv-shim` exists. If it exists, it means there is already an instance of rehash running. So the current program exits.
+
+3. If it doesn't, create it and also acquire a lock on it. Put the contents of shim script into the prototype file.
+
+4. Iterate through all the files in bin directories of all versions of Ruby installed. For each file, create a shim script in `shims` directory and copy the contents of the prototype file into the shim script. Now you know why all the shim scripts are the same.
+
+5. Delete the prototype file.
+
+So that wraps up this post on rbenv internals. I will update this post if I happen to read more on other topics like rbenv hooks and plugins. 
+
+I hope it gave you a good idea on how rbenv works. Happy hacking!
+
 
