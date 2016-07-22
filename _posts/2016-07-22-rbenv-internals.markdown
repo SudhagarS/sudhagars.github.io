@@ -76,7 +76,7 @@ export RBENV_ROOT="/Users/shot/.rbenv"
 exec "/usr/local/Cellar/rbenv/1.0.0/libexec/rbenv" exec "$program" "$@"
 {% endhighlight %}
 
-So a shim file on its own is not doing much. It sets up the environment variables `RBENV_DIR` and `RBENV_ROOT`. It then execute the command `/usr/local/Cellar/rbenv/1.0.0/libexec/rbenv exec original-command original-args`.
+So a shim file on its own is not doing much. It sets up the environment variables `RBENV_DIR` and `RBENV_ROOT`. It then executes the command `/usr/local/Cellar/rbenv/1.0.0/libexec/rbenv exec original-command original-args`.
 
 eg. `rails s` is interpreted by `~/.rbenv/shims/rails` which then runs `rbenv exec rails s`.
 
@@ -92,7 +92,7 @@ version's 'bin' directory is at the front.
 
 Lets examine how it works by going through the steps involved.
 
-1. Rbenv exec starts off by finding the right Ruby version to apply. To find the right version it runs `rbenv version-name`. `rbenv version-name` first looks at the current directory for a local version file named `.ruby-version`. If it exists it reads the version from there. Else it read the version from the global version file at `~/.rbenv/version`.
+1. Rbenv exec starts off by finding the right Ruby version to apply. To find the right version it runs `rbenv version-name`. `rbenv version-name` first looks at the current directory for a local version file named `.ruby-version`. If it exists it reads the version from there. Else it reads the version from the global version file at `~/.rbenv/version`.
 
     `RBENV_VERSION=2.2.3`
 
