@@ -25,11 +25,11 @@ If you go into ~/.rbenv, you will find another directory `shims`. Shims? What is
 
 > *In computer programming, a shim is a small library that transparently intercepts API calls and changes the arguments passed, handles the operation itself, or redirects the operation elsewhere.*
 
-This is exactly what rbenv shims do. A rbenv shim intercepts a ruby related command and calls `rbenv exec` which takes care of running the right executable.
+This is exactly what rbenv shims do. A rbenv shim intercepts a ruby related command and then calls `rbenv exec` which takes care of running the right executable.
 
-How does rbenv intercept ruby commands? It does so by putting all possible commands as separate executable files in `~/.rbenv/shims` and adding this directory before all the other directories in `$PATH` env variable. So when you run `ruby -v`, the system will find the shim script `ruby` in `~/.rbenv/shims` directory and execute it.
+How does rbenv intercept ruby commands? It does so by putting all possible commands as separate executable files in `~/.rbenv/shims` directory and adding this directory before all the other directories in `$PATH` env variable. So when you run `ruby -v`, the system will find the shim script `ruby` in `~/.rbenv/shims` directory and execute it.
 
-Lets see what's inside a file in shims directory.
+Lets see what's inside a shim script.
 
 {% highlight shell %}
 #!/usr/bin/env bash
@@ -84,7 +84,7 @@ eg. `rails s` is interpreted by `~/.rbenv/shims/rails` which then runs `rbenv ex
 
 Rbenv exec [script](https://github.com/rbenv/rbenv/blob/master/libexec/rbenv-exec) takes over from the shim script.
 
-From the doucmentation:
+From the documentation:
 {% highlight html %}
 Runs an executable by first preparing PATH so that the selected Ruby
 version's 'bin' directory is at the front.
@@ -96,11 +96,11 @@ Lets examine how it works by going through the steps involved. We will use `rben
 
     `RBENV_VERSION=2.2.3`
 
-2. It then finds the command which is the first argument to exec script.
+2. It then finds the command which is the first argument to `exec`.
 
     `RBENV_COMMAND=rails`
 
-3. It then runs `rbenv which cmd` to find the path of the right executable by using the above found values.
+3. It then runs `rbenv which cmd` to find the path of the right executable. `rbenv which cmd` finds the right path by using the values of `RBENV_VERSION` and `RBENV_COMMAND`.
     
         -> rbenv which rails
         /Users/shot/.rbenv/versions/2.2.3/bin/rails
