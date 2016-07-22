@@ -90,7 +90,7 @@ Runs an executable by first preparing PATH so that the selected Ruby
 version's 'bin' directory is at the front.
 {% endhighlight %}
 
-Lets examine how it works by going through the steps involved.
+Lets examine how it works by going through the steps involved. We will use `rbenv exec rails s` here as an example.
 
 1. Rbenv exec starts off by finding the right Ruby version to apply. To find the right version it runs `rbenv version-name`. `rbenv version-name` first looks at the current directory for a local version file named `.ruby-version`. If it exists it reads the version from there. Else it reads the version from the global version file at `~/.rbenv/version`.
 
