@@ -1,13 +1,13 @@
 ---
 layout: post
 title:  "First steps in mitigating Software Complexity"
-date:   2016-07-25 16:00:00 +0530
-categories: software-leadership software-development
+date:   2016-11-01 16:00:00 +0530
+categories: software-development
 tags: software-development software-leadership
 excerpt: 
 ---
 
-You are leading a software development team of more than 10 developers. Your code base has grown so complex that shipping features takes longer than it used to. In that case, along the lines of famous [mandate](https://plus.google.com/+RipRowan/posts/eVeouesvaVX) by Jeff Bezos, this is what I propose you do.
+You are leading a software development team of more than 10 developers. Your code base has grown so complex that shipping features takes longer than it used to. In that case, along the lines of famous [mandate](https://plus.google.com/+RipRowan/posts/eVeouesvaVX) by Jeff Bezos, this is the mandate I propose you issue to your team.
 
 1. No one talks with anyone else in the team.
 
@@ -21,7 +21,7 @@ You are leading a software development team of more than 10 developers. Your cod
      
      c. Assumptions made
      
-     d. Tricky piece of code
+     d. Tricky pieces
      
      e. Things new developers might think are mistakes but aren't
 
