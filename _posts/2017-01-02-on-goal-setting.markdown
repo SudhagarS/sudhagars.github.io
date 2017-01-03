@@ -16,7 +16,7 @@ Though all this made me knowlegable overall, when it came to actual work, I alte
 
 After 3 and a half years in the industry, I now realise I set the wrong goal. I can be the best developer in the world but it will be of no use if I am not having any impact on business growth.
 
-Recently I have reset my goal to be the **developer that contributes the most towards business growth**. So how can you be that developer. Simple. You accelerate the business growth by value faster by shipping features and fixing bugs faster.
+Recently I have reset my goal to be the **developer that contributes the most towards business growth**. So how can you be that developer. Simple. You help accelerate the business growth by shipping faster.
 
 The first step is to know the product really well. Know all the specifications. Know all the edge cases. Know what happens when that button is clicked. Know how the system handles that invalid input. Learn the core data models and their relationships between them. You should also have some idea on how people use the product and what's the most used feature.
 
