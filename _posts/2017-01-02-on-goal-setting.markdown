@@ -6,6 +6,9 @@ categories: software-development
 tags: software-development goals
 excerpt: 
 ---
+
+> “You can get anything you want in life if you help enough other people get what they want.”
+
 When I started my career as a software developer, I wanted to be the best developer I can be. I thought the way to go about that was by learning a lot. Hence I would learn everything about the programming languages I was working with. 
 
 I would read all famous tech blogs. I would catch up on hacker news front page. I would Google "must read books for software developers", download the books, start reading them and would lose interest halfway through. I would participate in language, editor and framework wars online with so much enthusiasm.
