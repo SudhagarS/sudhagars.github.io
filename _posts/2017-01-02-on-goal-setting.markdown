@@ -20,13 +20,13 @@ Recently I have reset my goal to be the **developer that contributes the most to
 
 The first step is to know the product really well. Know all the specifications. Know all the edge cases. Know what happens when that button is clicked. Know how the system handles that invalid input. Learn the core data models and their relationships between them. You should also have some idea on how people use the product and what's the most used feature.
 
-Now coming to the code, treat your codebase as a set of libraries. Learn their APIs. Learn their side-effects. Learn how failures propagate between them. Learn the art of crafting better code from software engineering classcis like code complete, clean code.
+Coming to the code, treat your codebase as a set of libraries. Learn their APIs. Learn their side-effects. Learn how failures propagate between them. Learn the art of crafting better code from software engineering classcis like code complete, clean code.
 
-Thridly, keep up with the new releases, features and deprecations of the libraries(rails, django, devise, etc) that are crucial to your product.
+Finally, keep up with the new releases, features and deprecations of the libraries(rails, django, devise, ember, etc) that are crucial to your product.
 
 When you know all these things too well, you won't be surprised or making guesses when reading code. You won't get blocked when you are working on something. Blockages are worse when you have to depend on someone else in your team or your PM to resolve it.
 
-You might be wondering, isn't this what we all do everyday at work. But what I am insisting here is, set aside separate time specifically for the above tasks. It is when you sharpen that axe. Once that axe is sharp, you will be shipping features so fast and have all the time to read everything on the hacker news and reddit frontpages.
+You might be wondering, isn't this what we all do everyday at work. But what I am insisting here is, set aside separate time specifically for the above tasks. It is when you sharpen that axe. Once that axe is sharp, you will be shipping features so fast and have all the time to read everything on the hacker news and reddit frontpages and also contribute to open source.
 
 When you take all the time you spend online reading random stuff, the stuff you think will make you a better software developer, and use it to understand your product and code base, I promise you, you will start having the best impact you can have as a developer. 
 
