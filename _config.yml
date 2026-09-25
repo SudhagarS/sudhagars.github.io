@@ -11,6 +11,7 @@ email: sudhagar@isudhagar.in
 description: > # this means to ignore newlines until "baseurl:"
   Been coding ever since I got fascinated by computers. Language Junkie. 
   I obsess over understanding how things work under the hood.
+url: "https://sudhagars.github.io"
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: shotwhat
 github_username:  sudhagars
